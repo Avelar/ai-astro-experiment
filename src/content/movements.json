@@ -1,0 +1,7 @@
+[
+  {"name":"Jazz","origin":"Nova Orleans, início do século XX","description":"Nascido do encontro de tradições afro-americanas, o jazz coloca a improvisação e a escuta coletiva no centro. Cada interpretação abre espaço para uma conversa diferente entre músicos.","number":"01","color":"ochre"},
+  {"name":"Blues","origin":"Sul dos Estados Unidos, fim do século XIX","description":"Voz, repetição e variações sobre estruturas simples dão forma a uma tradição de memória e invenção. O blues influenciou profundamente o jazz, o rock e a música popular mundial.","number":"02","color":"plum"},
+  {"name":"Rock","origin":"Estados Unidos, década de 1950","description":"Guitarras amplificadas, bateria e canções diretas ajudaram a criar uma linguagem jovem e expansiva. Em cada década, o rock se reinventou em novas cenas e subgêneros.","number":"03","color":"coral"},
+  {"name":"Música eletrônica","origin":"Estúdios e pistas, século XX","description":"Sintetizadores, samplers e computadores ampliaram o que pode ser um instrumento. Da pesquisa de estúdio às pistas de dança, produtores transformam tecnologia em expressão.","number":"04","color":"green"},
+  {"name":"Hip-hop","origin":"Bronx, Nova York, década de 1970","description":"Uma cultura criada por comunidades negras e latinas reúne rap, discotecagem, dança e arte visual. Sua força inventiva atravessou fronteiras e segue revelando novas vozes.","number":"05","color":"blue"}
+]

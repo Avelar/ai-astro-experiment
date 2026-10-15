@@ -1,0 +1,16 @@
+---
+import home from '../content/home.json';
+import events from '../content/timeline.json';
+import movements from '../content/movements.json';
+import Hero from '../components/Hero.astro';
+import Introduction from '../components/Introduction.astro';
+import Timeline from '../components/Timeline.astro';
+import Movements from '../components/Movements.astro';
+import BlogGrid from '../components/BlogGrid.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const postFiles = Object.entries(import.meta.glob('../content/blog/*.md', { eager: true, import: 'frontmatter' }));
+const posts = postFiles.map(([path, frontmatter]) => ({ ...frontmatter, slug: path.split('/').pop().replace('.md', ''), date: new Date(frontmatter.date) })).sort((a, b) => b.date - a.date);
+---
+<BaseLayout title={`${home.siteTitle} — Atlas Sonoro`} description={home.hero.subtitle} footer={home.footer} siteTitle={home.siteTitle}>
+  <Hero hero={home.hero} /><Introduction introduction={home.introduction} /><Timeline events={events} /><Movements movements={movements} /><BlogGrid posts={posts} title={home.blogTitle} intro={home.blogIntro} />
+</BaseLayout>

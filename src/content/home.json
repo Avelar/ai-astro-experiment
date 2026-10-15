@@ -1,0 +1,29 @@
+{
+  "siteTitle": "A História da Música no Mundo",
+  "hero": {
+    "eyebrow": "Um atlas sonoro",
+    "title": "A música conta a história de todos nós.",
+    "subtitle": "Uma viagem por ritmos, ideias e encontros que atravessaram séculos — e continuam a mudar a forma como ouvimos o mundo.",
+    "image": "/images/hero.svg",
+    "imageAlt": "Ilustração abstrata de ondas sonoras e discos em tons quentes",
+    "buttonLabel": "Começar a viagem",
+    "buttonLink": "#linha-do-tempo"
+  },
+  "introduction": {
+    "eyebrow": "Antes de qualquer palavra",
+    "title": "Uma linguagem que sempre esteve aqui.",
+    "paragraphs": [
+      "Muito antes da escrita, já havia música. Um pulso marcado na terra, uma voz em resposta a outra, o som de objetos cotidianos: em todas as culturas, pessoas encontraram maneiras de transformar o tempo em algo compartilhado.",
+      "A história da música não segue uma única linha. Ela se ramifica, viaja e se mistura. Cada época deixa novas ferramentas e perguntas — e cada geração responde com o som do seu próprio tempo."
+    ],
+    "note": "Uma história feita de muitas histórias."
+  },
+  "blogTitle": "Escutas em foco",
+  "blogIntro": "Ideias, personagens e momentos para ouvir com mais atenção.",
+  "footer": {
+    "projectName": "Atlas Sonoro",
+    "description": "Um projeto experimental sobre música, memória e encontros.",
+    "credit": "Conteúdo demonstrativo criado para explorar Astro e CMS editorial.",
+    "backToTop": "Voltar ao topo"
+  }
+}

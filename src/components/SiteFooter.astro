@@ -1,0 +1,7 @@
+---
+const { footer } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="footer-top"><a class="footer-brand" href="/">{footer.projectName}<span>✳</span></a><p>{footer.description}</p><a class="back-top" href="#top">{footer.backToTop} ↑</a></div>
+  <div class="footer-bottom"><span>© 2026 · {footer.projectName}</span><span>{footer.credit}</span><a href="/">Feito para ouvir com curiosidade</a></div>
+</footer>

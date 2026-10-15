@@ -1,0 +1,7 @@
+---
+const { events } = Astro.props;
+---
+<section class="timeline-section section-shell" id="linha-do-tempo">
+  <div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>02 — Percurso</p><h2>O tempo também<br /><em>tem ritmo.</em></h2></div><p class="section-aside">Oito passagens por uma história que nunca acontece em uma só direção.</p></div>
+  <ol class="timeline-list">{events.map((event) => <li class="timeline-item"><span class="timeline-index">{event.index}</span><div class="timeline-marker" aria-hidden="true"></div><div class="timeline-copy"><p class="timeline-period">{event.period}</p><h3>{event.title}</h3><p>{event.description}</p></div><span class="timeline-arrow" aria-hidden="true">↗</span></li>)}</ol>
+</section>

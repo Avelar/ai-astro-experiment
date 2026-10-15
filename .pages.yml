@@ -1,0 +1,186 @@
+media:
+  - name: images
+    label: Imagens do site
+    input: public/images
+    output: /images
+    rename: safe
+    categories: [image]
+content:
+  - name: homepage
+    label: Página inicial
+    type: file
+    path: src/content/home.json
+    format: json
+    fields:
+      - name: siteTitle
+        label: Nome do site
+        type: string
+        required: true
+      - name: hero
+        label: Destaque principal
+        type: object
+        fields:
+          - name: eyebrow
+            label: Texto de apoio
+            type: string
+          - name: title
+            label: Título principal
+            type: text
+            required: true
+          - name: subtitle
+            label: Subtítulo
+            type: text
+          - name: image
+            label: Imagem de destaque
+            type: image
+            options:
+              media: images
+              path: /
+          - name: imageAlt
+            label: Descrição da imagem
+            type: string
+          - name: buttonLabel
+            label: Texto do botão
+            type: string
+          - name: buttonLink
+            label: Destino do botão
+            type: string
+      - name: introduction
+        label: Introdução
+        type: object
+        fields:
+          - name: eyebrow
+            label: Texto de apoio
+            type: string
+          - name: title
+            label: Título
+            type: string
+          - name: paragraphs
+            label: Parágrafos
+            type: text
+            list: true
+          - name: note
+            label: Frase em destaque
+            type: string
+      - name: blogTitle
+        label: Título da seção de artigos
+        type: string
+      - name: blogIntro
+        label: Descrição da seção de artigos
+        type: text
+      - name: footer
+        label: Rodapé
+        type: object
+        fields:
+          - name: projectName
+            label: Nome do projeto
+            type: string
+          - name: description
+            label: Descrição
+            type: text
+          - name: credit
+            label: Crédito
+            type: text
+          - name: backToTop
+            label: Link para o topo
+            type: string
+  - name: timeline
+    label: Linha do tempo
+    type: file
+    path: src/content/timeline.json
+    format: json
+    list: true
+    fields:
+      - name: period
+        label: Período
+        type: string
+        required: true
+      - name: title
+        label: Título do período
+        type: string
+        required: true
+      - name: description
+        label: Descrição
+        type: text
+      - name: index
+        label: Número de ordem
+        type: string
+  - name: movements
+    label: Movimentos musicais
+    type: file
+    path: src/content/movements.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Movimento
+        type: string
+        required: true
+      - name: origin
+        label: Origem e período
+        type: string
+      - name: description
+        label: Descrição
+        type: text
+      - name: number
+        label: Número de ordem
+        type: string
+      - name: color
+        label: Tom visual do cartão
+        type: select
+        options:
+          values:
+            - name: ochre
+              label: Ocre
+            - name: plum
+              label: Ameixa
+            - name: coral
+              label: Coral
+            - name: green
+              label: Verde
+            - name: blue
+              label: Azul
+  - name: blog
+    label: Artigos do blog
+    type: collection
+    path: src/content/blog
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: date
+        label: Data de publicação
+        type: date
+        required: true
+      - name: category
+        label: Categoria
+        type: string
+      - name: excerpt
+        label: Resumo
+        type: text
+      - name: coverImage
+        label: Imagem de capa
+        type: image
+        options:
+          media: images
+          path: /
+      - name: coverAlt
+        label: Descrição da imagem de capa
+        type: string
+      - name: body
+        label: Texto do artigo
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+          path: /
+    view:
+      primary: title
+      fields: [title, category, date]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc

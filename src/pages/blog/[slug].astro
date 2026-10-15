@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import home from '../../content/home.json';
+export async function getStaticPaths() {
+  const posts = Object.entries(import.meta.glob('../../content/blog/*.md', { eager: true }));
+  return posts.map(([path, post]) => ({ params: { slug: path.split('/').pop().replace('.md', '') }, props: { post } }));
+}
+const { post } = Astro.props;
+const { frontmatter } = post;
+const date = new Date(frontmatter.date);
+---
+<BaseLayout title={`${frontmatter.title} — Atlas Sonoro`} description={frontmatter.excerpt} footer={home.footer} siteTitle={home.siteTitle}>
+  <article class="article-page"><header class="article-header"><a class="back-link" href="/#artigos">← Voltar ao caderno</a><p class="eyebrow"><span class="eyebrow-line"></span>{frontmatter.category}</p><h1>{frontmatter.title}</h1><p class="article-excerpt">{frontmatter.excerpt}</p><div class="article-date"><time datetime={date.toISOString()}>{date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}</time><span>·</span><span>Leitura de 4 min</span></div></header><img class="article-cover" src={frontmatter.coverImage} alt={frontmatter.coverAlt} /><div class="article-body"><post.Content /></div></article>
+</BaseLayout>

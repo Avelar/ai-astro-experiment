@@ -1,0 +1,7 @@
+---
+const { introduction } = Astro.props;
+---
+<section class="introduction section-shell" id="introducao">
+  <div class="section-kicker"><span>01</span><span class="kicker-rule"></span><span>{introduction.eyebrow}</span></div>
+  <div class="intro-content"><h2>{introduction.title}</h2><div class="intro-text">{introduction.paragraphs.map((paragraph) => <p>{paragraph}</p>)}<p class="intro-note"><span>✳</span>{introduction.note}</p></div></div>
+</section>

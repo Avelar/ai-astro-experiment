@@ -1,0 +1,13 @@
+---
+const { projectName } = Astro.props;
+---
+<header class="site-header">
+  <a class="skip-link sr-only focus:not-sr-only" href="#main-content">Pular para o conteúdo</a>
+  <a class="brand" href="/" aria-label={`${projectName} — início`}><span class="brand-mark" aria-hidden="true">◖</span><span>{projectName}</span></a>
+  <nav aria-label="Navegação principal">
+    <a href="/#linha-do-tempo">Linha do tempo</a>
+    <a href="/#movimentos">Movimentos</a>
+    <a href="/#artigos">Caderno</a>
+  </nav>
+  <a class="header-index" href="/#introducao">01 <span>—</span> 08</a>
+</header>

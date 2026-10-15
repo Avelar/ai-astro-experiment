@@ -1,0 +1,7 @@
+---
+const { movements } = Astro.props;
+---
+<section class="movements-section" id="movimentos">
+  <div class="section-shell"><div class="section-heading movement-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>03 — Linguagens</p><h2>Ritmos que<br /><em>mudaram tudo.</em></h2></div><p class="section-aside">Cinco movimentos. Infinitas maneiras de ouvir o que vem depois.</p></div>
+  <div class="movement-grid">{movements.map((movement) => <article class={`movement-card tone-${movement.color}`}><div class="movement-top"><span>{movement.number}</span><span class="movement-glyph" aria-hidden="true">{movement.number === '01' ? '♬' : movement.number === '02' ? '〰' : movement.number === '03' ? '✳' : movement.number === '04' ? '⌁' : '◉'}</span></div><h3>{movement.name}</h3><p class="movement-origin">{movement.origin}</p><p class="movement-description">{movement.description}</p><span class="movement-corner" aria-hidden="true">↗</span></article>)}</div></div>
+</section>

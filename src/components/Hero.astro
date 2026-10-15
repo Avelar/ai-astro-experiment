@@ -1,0 +1,13 @@
+---
+const { hero } = Astro.props;
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="eyebrow-line"></span>{hero.eyebrow}</p>
+    <h1 id="hero-title">{hero.title}</h1>
+    <p class="hero-description">{hero.subtitle}</p>
+    <a class="button button-dark" href={hero.buttonLink}>{hero.buttonLabel}<span aria-hidden="true">↗</span></a>
+    <div class="hero-meta"><span>UMA EXPLORAÇÃO DA MÚSICA</span><span>01 / 08</span></div>
+  </div>
+  <div class="hero-art-wrap"><img class="hero-art" src={hero.image} alt={hero.imageAlt} /><span class="art-caption">O som atravessa o tempo</span><span class="art-number" aria-hidden="true">♪</span></div>
+</section>
