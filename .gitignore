@@ -1,8 +1,30 @@
+# Dependencies
 node_modules/
+
+# Astro build
 dist/
 .astro/
+
+# Vercel
 .vercel/
-.DS_Store
+
+# Environment variables
 .env
 .env.*
 !.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
