@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import home from '../content/home.json';
+export async function getStaticPaths() {
+  const pages = Object.entries(import.meta.glob('../content/pages/*.md', { eager: true }));
+  return pages.map(([path, page]) => ({ params: { slug: path.split('/').pop().replace('.md', '') }, props: { page } }));
+}
+const { page } = Astro.props;
+const { frontmatter } = page;
+---
+<BaseLayout title={`${frontmatter.title} — Atlas Sonoro`} description={frontmatter.excerpt ?? home.hero.subtitle} footer={home.footer} siteTitle={home.siteTitle}>
+  <article class="article-page"><header class="article-header"><a class="back-link" href="/">← Voltar ao início</a><p class="eyebrow"><span class="eyebrow-line"></span>Atlas Sonoro</p><h1>{frontmatter.title}</h1>{frontmatter.excerpt && <p class="article-excerpt">{frontmatter.excerpt}</p>}</header>{frontmatter.coverImage && <img class="article-cover" src={frontmatter.coverImage} alt={frontmatter.coverAlt ?? ''} />}<div class="article-body"><page.Content /></div></article>
+</BaseLayout>

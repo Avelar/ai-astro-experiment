@@ -10,11 +10,11 @@ Projeto experimental para validar um fluxo simples de publicação editorial: **
 - Markdown com frontmatter YAML para artigos
 - Vercel para deploy e Pages CMS para edição Git-based
 
-O projeto usa Node.js 22, npm e não inclui React, backend, SSR ou integrações pagas.
+O projeto usa Node.js 24, npm e não inclui React, backend, SSR ou integrações pagas.
 
 ## Instalação e desenvolvimento
 
-Requisitos: Node.js 22 e npm.
+Requisitos: Node.js 24 e npm.
 
 ```sh
 npm install
@@ -42,7 +42,8 @@ O build estático é gerado em `dist/`.
 │   │   ├── home.json          # textos da página inicial e rodapé
 │   │   ├── timeline.json      # eventos da linha do tempo
 │   │   ├── movements.json     # movimentos musicais
-│   │   └── blog/*.md          # artigos em Markdown
+│   │   ├── blog/*.md          # artigos em Markdown
+│   │   └── pages/*.md         # páginas independentes em Markdown
 │   ├── layouts/               # estrutura compartilhada
 │   ├── pages/                 # rotas estáticas, incluindo /blog/[slug]/
 │   └── styles/                # CSS global e Tailwind
@@ -73,11 +74,13 @@ O conteúdo do artigo em Markdown.
 
 O nome do arquivo vira o endereço `/blog/minha-nova-escuta/`. Adicione imagens próprias em `public/images/` e use `/images/nome-do-arquivo.ext`.
 
+Para criar uma página independente no Pages CMS, abra **Páginas do site → Add an entry**, preencha o título, resumo e conteúdo. A página é criada a partir do título, publicada em `/<slug>/` e aparece automaticamente no menu **Páginas** do site. Há uma página demonstrativa chamada “Sobre o Atlas Sonoro” que pode ser editada ou removida.
+
 ## Publicar na Vercel
 
 1. Envie o repositório para o GitHub e importe-o na Vercel.
 2. Se a Vercel pedir os comandos, use **Build Command** `npm run build` e **Output Directory** `dist`.
-3. Mantenha o deploy como estático e use a versão de Node indicada pelo projeto (22).
+3. Mantenha o deploy como estático e use a versão de Node indicada pelo projeto (24).
 4. A Vercel cria deploys para commits no GitHub. Não é necessário domínio próprio.
 
 ## Conectar ao Pages CMS
@@ -85,7 +88,7 @@ O nome do arquivo vira o endereço `/blog/minha-nova-escuta/`. Adicione imagens 
 1. Acesse [Pages CMS](https://app.pagescms.org/) e entre com GitHub.
 2. Instale/autorize o aplicativo GitHub para o proprietário do repositório `Avelar/ai-astro-experiment`.
 3. Selecione o repositório e a branch principal. O arquivo `.pages.yml` na raiz informa onde editar cada conteúdo.
-4. Abra **Página inicial**, **Linha do tempo**, **Movimentos musicais** ou **Artigos do blog**. Salvar alterações cria commits no GitHub; o deploy da Vercel é acionado pelo commit.
+4. Abra **Página inicial**, **Linha do tempo**, **Movimentos musicais**, **Páginas do site** ou **Artigos do blog**. Salvar alterações cria commits no GitHub; o deploy da Vercel é acionado pelo commit.
 5. Imagens enviadas pelos campos do CMS vão para `public/images/` e são referenciadas no site por `/images/...`.
 
 Não há credenciais do CMS nem configuração do CloudCannon neste repositório. A organização de conteúdo e componentes permanece independente do CMS para permitir o teste futuro com CloudCannon.

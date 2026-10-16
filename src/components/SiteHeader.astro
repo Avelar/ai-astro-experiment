@@ -1,5 +1,7 @@
 ---
 const { projectName } = Astro.props;
+const pageFiles = Object.entries(import.meta.glob('../content/pages/*.md', { eager: true, import: 'frontmatter' }));
+const pages = pageFiles.map(([path, page]) => ({ title: page.title, slug: path.split('/').pop().replace('.md', '') }));
 ---
 <header class="site-header">
   <a class="skip-link sr-only focus:not-sr-only" href="#main-content">Pular para o conteúdo</a>
@@ -8,6 +10,7 @@ const { projectName } = Astro.props;
     <a href="/#linha-do-tempo">Linha do tempo</a>
     <a href="/#movimentos">Movimentos</a>
     <a href="/#artigos">Caderno</a>
+    {pages.length > 0 && <details class="page-menu"><summary>Páginas</summary><div class="page-menu-panel">{pages.map((page) => <a href={`/${page.slug}/`}>{page.title}</a>)}</div></details>}
   </nav>
   <a class="header-index" href="/#introducao">01 <span>—</span> 08</a>
 </header>

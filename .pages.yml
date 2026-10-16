@@ -140,6 +140,40 @@ content:
               label: Verde
             - name: blue
               label: Azul
+  - name: pages
+    label: Páginas do site
+    type: collection
+    path: src/content/pages
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Título da página
+        type: string
+        required: true
+      - name: excerpt
+        label: Resumo da página
+        type: text
+      - name: coverImage
+        label: Imagem de capa
+        type: image
+        options:
+          media: images
+          path: /
+      - name: coverAlt
+        label: Descrição da imagem de capa
+        type: string
+      - name: body
+        label: Conteúdo da página
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+          path: /
+    view:
+      primary: title
+      fields: [title]
+
   - name: blog
     label: Artigos do blog
     type: collection
